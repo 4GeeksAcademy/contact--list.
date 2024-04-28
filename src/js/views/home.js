@@ -1,15 +1,26 @@
-import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
-import "../../styles/home.css";
+import React, { useState, useEffect, useContext } from "react";
+import TaskList from "../component/taskList.jsx";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+import { Link } from "react-router-dom";
+
+import { Context } from "../store/appContext";
+
+import "../../styles/demo.css";
+
+export const Home = () => {
+	const { store, actions } = useContext(Context);
+
+	return (
+		<div >
+			<ul className="mt-5">
+			{store.agendas.map((agenda, index) => {
+				return (
+					<li key={index}>
+						<TaskList agenda={agenda}/>
+					</li>
+				)
+			})}
+			</ul>
+		</div>
+	);
+};

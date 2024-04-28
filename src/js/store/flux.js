@@ -1,42 +1,27 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			agendas: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
-			changeColor: (index, color) => {
-				//get the store
+			addAgenda: async (slug, id, contacts) => {
+				// Fetch data or use variables from somewhere
+
+				// For example, I'm using passed parameters for simplicity
+				const newAgenda = {
+					slug: slug,
+					id: id,
+					contacts: contacts
+				};
+				
+				// Get the current store
 				const store = getStore();
-
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
+				
+				// Add the new agenda object to the agendas array in the store
+				const updatedAgendas = [...store.agendas, newAgenda];
+				
+				// Update the store with the new agendas array
+				setStore({ agendas: updatedAgendas });
 			}
 		}
 	};
