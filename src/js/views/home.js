@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 
-import "../../styles/demo.css";
+import "../../styles/home.css";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div >
+		<div>
 			<ul className="mt-5">
 			{store.agendas.map((agenda, index) => {
 				return (
