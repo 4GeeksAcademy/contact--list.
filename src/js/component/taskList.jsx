@@ -68,7 +68,7 @@ const TaskList = ({agenda}) =>{
 								<li className='list-item'
 									key={index}>
 									<div className='list-item-div' onMouseEnter={() => setIsHovered(index)} onMouseLeave={() => setIsHovered(null)}>
-										<span>
+										<span onClick={() => window.location='/' + agenda.slug + '/' + contact.name}>
 											<h5 className='contact'>{contact.name}</h5>
 											<p className="contact-info">📞 {contact.phone}</p>
 											<p className="contact-info">📧 {contact.email}</p>

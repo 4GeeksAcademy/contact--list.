@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Context } from '../store/appContext'; // Adjust the import path as necessary
+import { Context } from '../store/appContext';
 import '../../styles/createContactModal.css'
 
 const CreateContactModal = ({onClose, agenda}) => {
